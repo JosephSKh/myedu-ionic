@@ -34,4 +34,25 @@
 
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import '@ionic/angular/css/palettes/dark.system.css';
+@import "@ionic/angular/css/palettes/dark.system.css";
+
+@import "./theme/variables.scss";
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+body {
+  font-family: "Nunito", sans-serif;
+}
+
+ion-toolbar {
+  --background: var(--purple);
+  box-shadow: none;
+}
+ion-header {
+  box-shadow: none !important;
+}
+
+.logo {
+  width: 63px;
+  height: 27px;
+  display: flex;
+}
