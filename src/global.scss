@@ -43,16 +43,29 @@ body {
   font-family: "Nunito", sans-serif;
 }
 
+ion-header {
+  box-shadow: none !important;
+}
 ion-toolbar {
   --background: var(--purple);
   box-shadow: none;
+  padding: 0 20px;
 }
-ion-header {
-  box-shadow: none !important;
+ion-title {
+  max-width: 1312px;
+  margin: 0 auto;
+  padding: 0;
 }
 
 .logo {
   width: 63px;
   height: 27px;
   display: flex;
+}
+
+.main-container {
+  padding-top: 56px;
+  max-width: 1312px;
+  margin: 0 auto;
+  width: 100%;
 }
