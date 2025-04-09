@@ -27,11 +27,4 @@ jobs:
       run: npm ci
     
     - name: Run unit tests
-      run: npm test -- --watch=false --browsers=ChromeHeadless
-    
-    - name: Upload test results
-      uses: actions/upload-artifact@v2
-      if: always()
-      with:
-        name: test-results
-        path: coverage/ 
+      run: npm test -- --watch=false --browsers=ChromeHeadless 
