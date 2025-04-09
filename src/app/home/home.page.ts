@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,5 +11,9 @@ import { CommonModule } from '@angular/common';
   imports: [IonicModule, CommonModule],
 })
 export class HomePage {
-  constructor() {}
+  constructor(private router: Router) {}
+
+  navigateToSubscribe() {
+    this.router.navigate(['/subscribe']);
+  }
 }
