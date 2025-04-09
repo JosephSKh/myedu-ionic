@@ -96,3 +96,17 @@ ion-button {
     padding: 20px 25px;
   }
 }
+
+ion-item {
+  --background: #fff;
+  --border: none !important;
+  --border-radius: 16px;
+  &:hover {
+    --background: #fff;
+  }
+  &::part(native) {
+    .item-inner {
+      border: none !important;
+    }
+  }
+}

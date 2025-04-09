@@ -1,0 +1,140 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <div class="logo">Logo</div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <section class="subscribe-section">
+    <div class="subscribe-container">
+      <div class="form-section">
+        <h1>Subscribe</h1>
+        <p class="subtitle">to our Monthly Surprise Box</p>
+
+        <form (ngSubmit)="onSubmit()" #subscribeForm="ngForm">
+          <div class="form-group">
+            <h2>Contact Information</h2>
+
+            <ion-item>
+              <ion-label class="ion-label-size" position="stacked">Your Name</ion-label>
+              <ion-input type="text" placeholder="e.g Osama Alshathri" [(ngModel)]="formData.name" name="name"
+                required></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label class="ion-label-size" position="stacked">Email</ion-label>
+              <ion-input type="email" placeholder="Osama@gmail.com" [(ngModel)]="formData.email" name="email"
+                required></ion-input>
+            </ion-item>
+          </div>
+
+          <div class="form-group">
+            <h2>Child's Information</h2>
+
+            <ion-item>
+              <ion-label class="ion-label-size" position="stacked">Child's Full Name</ion-label>
+              <ion-input type="text" placeholder="e.g Sarah Mohammad" [(ngModel)]="formData.childName" name="childName"
+                required></ion-input>
+            </ion-item>
+
+            <div class="date-of-birth">
+              <ion-label class="ion-label-size-3">Child's Date of Birth</ion-label>
+              <div class="date-inputs">
+                <ion-select [(ngModel)]="formData.birthDate" name="birthDate" placeholder="Date">
+                  <ion-select-option *ngFor="let day of days" [value]="day">{{day}}</ion-select-option>
+                </ion-select>
+
+                <ion-select [(ngModel)]="formData.birthMonth" name="birthMonth" placeholder="Month">
+                  <ion-select-option *ngFor="let month of months" [value]="month">{{month}}</ion-select-option>
+                </ion-select>
+
+                <ion-select [(ngModel)]="formData.birthYear" name="birthYear" placeholder="Year">
+                  <ion-select-option *ngFor="let year of years" [value]="year">{{year}}</ion-select-option>
+                </ion-select>
+              </div>
+            </div>
+
+            <div class="grade">
+              <ion-label class="ion-label-size-3">Grade</ion-label>
+              <div class="grade-inputs">
+                <ion-select [(ngModel)]="formData.grade" name="grade" placeholder="e.g Grade 2">
+                  <ion-select-option *ngFor="let grade of grades" [value]="grade">Grade {{grade}}</ion-select-option>
+                </ion-select>
+              </div>
+            </div>
+
+            <div class="gender-selection">
+              <ion-label class="ion-label-size-3">Gender</ion-label>
+              <div class="gender-buttons">
+                <ion-button [class.selected]="formData.gender === 'Boy'" (click)="selectGender('Boy')"
+                  fill="outline">Boy</ion-button>
+                <ion-button [class.selected]="formData.gender === 'Girl'" (click)="selectGender('Girl')"
+                  fill="outline">Girl</ion-button>
+              </div>
+            </div>
+
+            <div class="topics-selection">
+              <ion-label class="ion-label-size">As a parent select any 3 topics</ion-label>
+              <div class="topics-buttons">
+                <ion-button *ngFor="let topic of topics" [class.selected]="isTopicSelected(topic)"
+                  (click)="toggleTopic(topic)" fill="outline">
+                  {{topic}}
+                </ion-button>
+              </div>
+            </div>
+          </div>
+
+          <ion-button class="continue-btn" type="submit" expand="block">
+            Continue to payment
+          </ion-button>
+        </form>
+      </div>
+
+      <div class="summary-section">
+        <h2>Summary</h2>
+        <p class="subtitle">of your Monthly Surprise Box</p>
+
+        <div class="summary-content">
+          <div class="product-row">
+            <div class="product-info">
+              <span class="product-name">Mystery Box</span>
+              <span class="quantity">X 1</span>
+            </div>
+            <div class="price-info">
+              <span class="price">SAR 456</span>
+              <span class="frequency">Monthly</span>
+            </div>
+          </div>
+
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <span>SAR 456</span>
+          </div>
+
+          <div class="summary-row">
+            <span>Shipping</span>
+            <span class="free">Free</span>
+          </div>
+
+          <div class="summary-row">
+            <span>Taxes</span>
+            <span>SAR 4.0</span>
+          </div>
+
+          <div class="total-row">
+            <div>
+              <span class="total-label">Total</span>
+              <span class="frequency">Monthly</span>
+            </div>
+            <span class="total-amount">SAR 456</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</ion-content>
