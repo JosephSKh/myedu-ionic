@@ -70,11 +70,13 @@
 
             <div class="gender-selection">
               <ion-label class="ion-label-size-3">Gender</ion-label>
-              <div class="gender-buttons">
-                <ion-button [class.selected]="formData.gender === 'Boy'" (click)="selectGender('Boy')"
-                  fill="outline">Boy</ion-button>
-                <ion-button [class.selected]="formData.gender === 'Girl'" (click)="selectGender('Girl')"
-                  fill="outline">Girl</ion-button>
+              <div class="gender-options">
+                <ion-item lines="none" class="gender-checkbox">
+                  <ion-checkbox name="gender" value="Boy" (ionChange)="onGenderChange($event, 'Boy')">Boy</ion-checkbox>
+                </ion-item>
+                <ion-item lines="none" class="gender-checkbox">
+                  <ion-checkbox name="gender" value="Girl" (ionChange)="onGenderChange($event, 'Girl')">Girl</ion-checkbox>
+                </ion-item>
               </div>
             </div>
 

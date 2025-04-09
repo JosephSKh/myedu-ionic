@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
+import { CheckboxCustomEvent } from '@ionic/angular';
 
 @Component({
   selector: 'app-subscribe',
@@ -35,8 +36,17 @@ export class SubscribePage implements OnInit {
   ngOnInit() {
   }
 
-  selectGender(gender: string) {
-    this.formData.gender = gender;
+  onGenderChange(event: CheckboxCustomEvent, gender: string) {
+    if (event.detail.checked) {
+      this.formData.gender = gender;
+      const otherGender = gender === 'Boy' ? 'Girl' : 'Boy';
+      const otherCheckbox = document.querySelector(`ion-checkbox[value="${otherGender}"]`) as HTMLIonCheckboxElement;
+      if (otherCheckbox) {
+        otherCheckbox.checked = false;
+      }
+    } else {
+      this.formData.gender = '';
+    }
   }
 
   isTopicSelected(topic: string): boolean {

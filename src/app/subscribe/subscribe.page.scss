@@ -14,7 +14,7 @@
   grid-template-columns: 1fr 400px;
   gap: 40px;
   padding: 0 30px;
-  padding-inline-end: 0px ;
+  padding-inline-end: 0px;
   max-width: 1312px;
   margin: 0 auto;
 
@@ -31,7 +31,7 @@
   }
 
   .subtitle {
-    color: #666;
+    color: #000;
     margin-bottom: 40px;
   }
 
@@ -120,7 +120,7 @@ ion-item {
   }
 }
 
-.gender-selection, .topics-selection {
+.gender-selection {
   margin-bottom: 20px;
 
   ion-label {
@@ -130,7 +130,39 @@ ion-item {
     margin-bottom: 16px;
   }
 
-  .gender-buttons, .topics-buttons {
+  .gender-options {
+    display: flex;
+    gap: 16px;
+
+    .gender-checkbox {
+      --background: #F8F8F8;
+      border-radius: 8px;
+      margin: 0;
+      width: 50%;
+      
+      ion-checkbox {
+        position: relative;
+        padding-left: 16px;
+        --checkbox-background: url('../../assets/icon/checkbox.svg') center no-repeat;
+        --checkbox-background-checked: url('../../assets/icon/checkbox-checked.svg') center no-repeat;
+        --checkmark-color	: transparent;
+      }
+
+    }
+  }
+}
+
+.topics-selection {
+  margin-bottom: 20px;
+
+  ion-label {
+    display: block;
+    color: #000;
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+
+  .topics-buttons {
     display: flex;
     gap: 16px;
     flex-wrap: wrap;
