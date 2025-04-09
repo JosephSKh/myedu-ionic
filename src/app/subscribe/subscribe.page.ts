@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { CheckboxCustomEvent } from '@ionic/angular';
+import { NavigationService } from '../services/navigation.service';
 
 @Component({
   selector: 'app-subscribe',
@@ -47,7 +48,7 @@ export class SubscribePage implements OnInit {
   grades = Array.from({length: 12}, (_, i) => i + 1);
   topics = ['Arabic', 'Islamic', 'English', 'History', 'Sports'];
 
-  constructor() {
+  constructor(private navigationService: NavigationService) {
     this.updateDays();
   }
 
@@ -184,7 +185,7 @@ export class SubscribePage implements OnInit {
   onSubmit() {
     if (this.validateForm()) {
       console.log('Form submitted:', this.formData);
-      window.location.href = 'https://js.stripe.com/v3/embedded-checkout-inner.html?publishableKey=pk_test_51HF0gZCJR1nkic2WnoloCeF2tR8ogJltEb028bXaSr8jDzAM4yKmFxFrbC5JiDYsKhuvqwAmJc75J1NgbrKwFO7I00L4EhhfIF&checkoutSessionId=cs_test_a1gagBBtq2nLVvNjeqOzbR4qHos8VYqbJTdt3tnfBWkHyyjYnqRDuP8ja8&ui_mode=embedded&__isDemoMode=true';
+      this.navigationService.navigate('https://js.stripe.com/v3/embedded-checkout-inner.html?publishableKey=pk_test_51HF0gZCJR1nkic2WnoloCeF2tR8ogJltEb028bXaSr8jDzAM4yKmFxFrbC5JiDYsKhuvqwAmJc75J1NgbrKwFO7I00L4EhhfIF&checkoutSessionId=cs_test_a1gagBBtq2nLVvNjeqOzbR4qHos8VYqbJTdt3tnfBWkHyyjYnqRDuP8ja8&ui_mode=embedded&__isDemoMode=true');
     }
   }
 } 
