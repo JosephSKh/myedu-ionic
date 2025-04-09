@@ -109,3 +109,49 @@ ion-content {
   width: 100%;
   pointer-events: none;
 }
+
+.site-footer {
+  padding: 60px 20px;
+  background: #fff;
+
+  .footer-content {
+  border-top: 1px solid #000;
+  padding-top: 20px;
+    max-width: 1312px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+    
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    a {
+      color: #000;
+      font-size: 14px;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .copyright {
+    color: #000;
+    font-size: 14px;
+  }
+}
