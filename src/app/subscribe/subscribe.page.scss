@@ -1,10 +1,10 @@
 .subscribe-section {
   background: url('../../assets/images/stripes.png') no-repeat center center;
   background-size: cover;
-  height: 100vh;
   padding-top: 60px;
   padding-bottom: 60px;
   background-position: top;
+  background-attachment: fixed;
 }
 
 .subscribe-container {
@@ -14,6 +14,7 @@
   grid-template-columns: 1fr 400px;
   gap: 40px;
   padding: 0 30px;
+  padding-bottom: 60px;
   padding-inline-end: 0px;
   max-width: 1312px;
   margin: 0 auto;
@@ -48,7 +49,8 @@
 
 ion-item {
   --padding-start: 0;
-  --border-color: #E5E5E5;
+  --padding-end: 0;
+  --border-color: transparent;
   --highlight-color-focused: var(--purple);
   margin-bottom: 20px;
 
@@ -64,12 +66,13 @@ ion-item {
     --padding-top: 16px;
     --padding-bottom: 16px;
     --border-radius: 8px;
-    --background: #F8F8F8;
   }
 }
 
+
 .date-of-birth {
   margin-bottom: 20px;
+  padding-right: 15px;
 
   ion-label {
     display: block;
@@ -89,14 +92,15 @@ ion-item {
       --padding-top: 16px;
       --padding-bottom: 16px;
       --border-radius: 8px;
-      --background: #F8F8F8;
+      --background: #fff !important;
+      background-color: #fff !important;
     }
   }
 }
 
 .grade {
   margin-bottom: 20px;
-
+  padding-right: 15px;
   ion-label {
     display: block;
     color: #000;
@@ -115,13 +119,13 @@ ion-item {
       --padding-top: 16px;
       --padding-bottom: 16px;
       --border-radius: 8px;
-      --background: #F8F8F8;
     }
   }
 }
 
 .gender-selection {
   margin-bottom: 20px;
+  padding-right: 15px;
 
   ion-label {
     display: block;
@@ -298,4 +302,11 @@ ion-item {
 
 .ion-label-size-3 {
   font-size: 12px !important;
+}
+
+
+ion-input, ion-select, .gender-options ion-item {
+  --border-width: 1px;
+  --border-color: #D0D5DD !important;
+  --background: #fff !important;
 }

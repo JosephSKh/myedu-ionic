@@ -22,13 +22,13 @@
 
             <ion-item>
               <ion-label class="ion-label-size" position="stacked">Your Name</ion-label>
-              <ion-input type="text" placeholder="e.g Osama Alshathri" [(ngModel)]="formData.name" name="name"
+              <ion-input type="text" fill="outline" placeholder="e.g Osama Alshathri" [(ngModel)]="formData.name" name="name"
                 required></ion-input>
             </ion-item>
 
             <ion-item>
               <ion-label class="ion-label-size" position="stacked">Email</ion-label>
-              <ion-input type="email" placeholder="Osama@gmail.com" [(ngModel)]="formData.email" name="email"
+              <ion-input type="email"  fill="outline" placeholder="Osama@gmail.com" [(ngModel)]="formData.email" name="email"
                 required></ion-input>
             </ion-item>
           </div>
@@ -38,22 +38,22 @@
 
             <ion-item>
               <ion-label class="ion-label-size" position="stacked">Child's Full Name</ion-label>
-              <ion-input type="text" placeholder="e.g Sarah Mohammad" [(ngModel)]="formData.childName" name="childName"
+              <ion-input type="text"  fill="outline" placeholder="e.g Sarah Mohammad" [(ngModel)]="formData.childName" name="childName"
                 required></ion-input>
             </ion-item>
 
             <div class="date-of-birth">
               <ion-label class="ion-label-size-3">Child's Date of Birth</ion-label>
               <div class="date-inputs">
-                <ion-select [(ngModel)]="formData.birthDate" name="birthDate" placeholder="Date">
+                <ion-select fill="outline" [(ngModel)]="formData.birthDate" name="birthDate" placeholder="Date">
                   <ion-select-option *ngFor="let day of days" [value]="day">{{day}}</ion-select-option>
                 </ion-select>
 
-                <ion-select [(ngModel)]="formData.birthMonth" name="birthMonth" placeholder="Month">
+                <ion-select fill="outline" [(ngModel)]="formData.birthMonth" name="birthMonth" placeholder="Month">
                   <ion-select-option *ngFor="let month of months" [value]="month">{{month}}</ion-select-option>
                 </ion-select>
 
-                <ion-select [(ngModel)]="formData.birthYear" name="birthYear" placeholder="Year">
+                <ion-select fill="outline" [(ngModel)]="formData.birthYear" name="birthYear" placeholder="Year">
                   <ion-select-option *ngFor="let year of years" [value]="year">{{year}}</ion-select-option>
                 </ion-select>
               </div>
@@ -62,7 +62,7 @@
             <div class="grade">
               <ion-label class="ion-label-size-3">Grade</ion-label>
               <div class="grade-inputs">
-                <ion-select [(ngModel)]="formData.grade" name="grade" placeholder="e.g Grade 2">
+                <ion-select fill="outline" [(ngModel)]="formData.grade" name="grade" placeholder="e.g Grade 2">
                   <ion-select-option *ngFor="let grade of grades" [value]="grade">Grade {{grade}}</ion-select-option>
                 </ion-select>
               </div>
