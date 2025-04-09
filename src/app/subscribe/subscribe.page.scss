@@ -1,5 +1,5 @@
 .subscribe-section {
-  background: url('../../assets/images/stripes.png') no-repeat center center;
+  background: url("../../assets/images/stripes.png") no-repeat center center;
   background-size: cover;
   padding-top: 60px;
   padding-bottom: 60px;
@@ -60,7 +60,8 @@ ion-item {
     margin-bottom: 8px;
   }
 
-  ion-input, ion-select {
+  ion-input,
+  ion-select {
     --padding-start: 16px;
     --padding-end: 16px;
     --padding-top: 16px;
@@ -68,7 +69,6 @@ ion-item {
     --border-radius: 8px;
   }
 }
-
 
 .date-of-birth {
   margin-bottom: 20px;
@@ -108,7 +108,6 @@ ion-item {
     margin-bottom: 8px;
   }
 
-
   .grade-inputs {
     display: grid;
     gap: 16px;
@@ -139,19 +138,20 @@ ion-item {
     gap: 16px;
 
     .gender-checkbox {
-      --background: #F8F8F8;
+      --background: #f8f8f8;
       border-radius: 8px;
       margin: 0;
       width: 50%;
-      
+
       ion-checkbox {
         position: relative;
         padding-left: 16px;
-        --checkbox-background: url('../../assets/icon/checkbox.svg') center no-repeat;
-        --checkbox-background-checked: url('../../assets/icon/checkbox-checked.svg') center no-repeat;
-        --checkmark-color	: transparent;
+        --checkbox-background: url("../../assets/icon/checkbox.svg") center
+          no-repeat;
+        --checkbox-background-checked: url("../../assets/icon/checkbox-checked.svg")
+          center no-repeat;
+        --checkmark-color: transparent;
       }
-
     }
   }
 }
@@ -172,22 +172,49 @@ ion-item {
     flex-wrap: wrap;
 
     ion-button {
-      --border-radius: 8px;
-      --border-color: #E5E5E5;
+      border: none;
+      --background: transparent;
+      --color: #667085;
       --border-width: 1px;
       --border-style: solid;
-      --background: transparent;
-      --color: #000;
-      --padding-start: 24px;
-      --padding-end: 24px;
-      --padding-top: 12px;
-      --padding-bottom: 12px;
+      --border-color: #fff;
+      --border-radius: 100px;
+      --padding-start: 20px;
+      --padding-end: 20px;
+      --padding-top: 8px;
+      --padding-bottom: 8px;
+      --color: #667085 !important;
+      color: #667085 !important;
       margin: 0;
+      height: auto;
+      font-weight: 500 !important;
+      --font-weight: 500 !important;
+      font-size: 16px;
+      text-transform: none;
+      --box-shadow: none;
+      --border-color: #e1e3e6 !important;
 
       &.selected {
-        --background: var(--purple);
-        --color: white;
-        --border-color: var(--purple);
+        --background: #eee7ff;
+        --color: var(--dark-purple) !important;
+        --border-color: var(--purple) !important;
+
+        &::part(native) {
+          --color: var(--dark-purple) !important;
+          color: var(--dark-purple) !important;
+          font-weight: 500 !important;
+        }
+      }
+
+      &::part(native) {
+        padding: 5px 20px;
+        --color: #667085 !important;
+        color: #667085 !important;
+        font-weight: 500 !important;
+      }
+
+      &:hover {
+        --background: #f9f5ff;
       }
     }
   }
@@ -205,6 +232,10 @@ ion-item {
   position: sticky;
   top: 40px;
 
+  .subtitle {
+    color: #000 !important;
+  }
+
   h2 {
     font-size: 24px;
     font-weight: 600;
@@ -217,18 +248,20 @@ ion-item {
   }
 
   .summary-content {
+
     .product-row {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
       margin-bottom: 24px;
       padding-bottom: 24px;
-      border-bottom: 1px solid #E5E5E5;
+      background: #fff;
+      padding: 20px;
+      border-radius: 20px;
 
       .product-info {
         display: flex;
         flex-direction: column;
-        gap: 8px;
 
         .product-name {
           font-weight: 500;
@@ -258,10 +291,10 @@ ion-item {
       display: flex;
       justify-content: space-between;
       margin-bottom: 16px;
-      color: #666;
+      color: #000;
 
       .free {
-        color: #4CAF50;
+        color: #4caf50;
       }
     }
 
@@ -271,7 +304,7 @@ ion-item {
       align-items: flex-end;
       margin-top: 24px;
       padding-top: 24px;
-      border-top: 1px solid #E5E5E5;
+      border-top: 1px solid #e5e5e5;
 
       .total-label {
         font-weight: 600;
@@ -289,8 +322,7 @@ ion-item {
       }
     }
   }
-} 
-
+}
 
 .ion-label-size {
   font-size: 16px !important;
@@ -304,9 +336,18 @@ ion-item {
   font-size: 12px !important;
 }
 
-
-ion-input, ion-select, .gender-options ion-item {
+ion-input,
+ion-select,
+.gender-options ion-item {
   --border-width: 1px;
-  --border-color: #D0D5DD !important;
+  --border-color: #d0d5dd !important;
   --background: #fff !important;
+}
+
+.topics-buttons ion-button {
+  --border: none !important;
+  box-shadow: none !important;
+  &::part(native) {
+    font-weight: 500;
+  }
 }
