@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { CheckboxCustomEvent } from '@ionic/angular';
 
@@ -12,6 +12,8 @@ import { CheckboxCustomEvent } from '@ionic/angular';
   imports: [IonicModule, CommonModule, FormsModule]
 })
 export class SubscribePage implements OnInit {
+  @ViewChild('subscribeForm') subscribeForm!: NgForm;
+  
   formData = {
     name: '',
     email: '',
@@ -22,6 +24,18 @@ export class SubscribePage implements OnInit {
     grade: '',
     gender: '',
     selectedTopics: [] as string[]
+  };
+
+  formErrors = {
+    name: '',
+    email: '',
+    childName: '',
+    birthDate: '',
+    birthMonth: '',
+    birthYear: '',
+    grade: '',
+    gender: '',
+    topics: ''
   };
 
   days: number[] = [];
@@ -101,8 +115,76 @@ export class SubscribePage implements OnInit {
     }
   }
 
+  validateForm(): boolean {
+    let isValid = true;
+    this.formErrors = {
+      name: '',
+      email: '',
+      childName: '',
+      birthDate: '',
+      birthMonth: '',
+      birthYear: '',
+      grade: '',
+      gender: '',
+      topics: ''
+    };
+
+    // Name validation
+    if (!this.formData.name.trim()) {
+      this.formErrors.name = 'Name is required';
+      isValid = false;
+    }
+
+    // Email validation
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if (!this.formData.email.trim()) {
+      this.formErrors.email = 'Email is required';
+      isValid = false;
+    } else if (!emailRegex.test(this.formData.email)) {
+      this.formErrors.email = 'Please enter a valid email address';
+      isValid = false;
+    }
+
+    // Child's name validation
+    if (!this.formData.childName.trim()) {
+      this.formErrors.childName = 'Child\'s name is required';
+      isValid = false;
+    }
+
+    // Birth date validation
+    if (!this.formData.birthDate || !this.formData.birthMonth || !this.formData.birthYear) {
+      this.formErrors.birthDate = 'Complete date of birth is required';
+      isValid = false;
+    }
+
+    // Grade validation
+    if (!this.formData.grade) {
+      this.formErrors.grade = 'Grade is required';
+      isValid = false;
+    }
+
+    // Gender validation
+    if (!this.formData.gender) {
+      this.formErrors.gender = 'Gender is required';
+      isValid = false;
+    }
+
+    // Topics validation
+    if (this.formData.selectedTopics.length === 0) {
+      this.formErrors.topics = 'Please select at least one topic';
+      isValid = false;
+    } else if (this.formData.selectedTopics.length > 3) {
+      this.formErrors.topics = 'Please select no more than 3 topics';
+      isValid = false;
+    }
+
+    return isValid;
+  }
+
   onSubmit() {
-    console.log('Form submitted:', this.formData);
-    window.location.href = 'https://js.stripe.com/v3/embedded-checkout-inner.html?publishableKey=pk_test_51HF0gZCJR1nkic2WnoloCeF2tR8ogJltEb028bXaSr8jDzAM4yKmFxFrbC5JiDYsKhuvqwAmJc75J1NgbrKwFO7I00L4EhhfIF&checkoutSessionId=cs_test_a1gagBBtq2nLVvNjeqOzbR4qHos8VYqbJTdt3tnfBWkHyyjYnqRDuP8ja8&ui_mode=embedded&__isDemoMode=true';
+    if (this.validateForm()) {
+      console.log('Form submitted:', this.formData);
+      window.location.href = 'https://js.stripe.com/v3/embedded-checkout-inner.html?publishableKey=pk_test_51HF0gZCJR1nkic2WnoloCeF2tR8ogJltEb028bXaSr8jDzAM4yKmFxFrbC5JiDYsKhuvqwAmJc75J1NgbrKwFO7I00L4EhhfIF&checkoutSessionId=cs_test_a1gagBBtq2nLVvNjeqOzbR4qHos8VYqbJTdt3tnfBWkHyyjYnqRDuP8ja8&ui_mode=embedded&__isDemoMode=true';
+    }
   }
 } 

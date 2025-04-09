@@ -356,3 +356,25 @@ ion-select,
     font-weight: 500;
   }
 }
+
+ion-note {
+  color: var(--ion-color-danger);
+  font-size: 12px;
+  display: block;
+  margin-top: 4px;
+  padding-left: 16px;
+}
+
+.form-group {
+  margin-bottom: 40px;
+
+  h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+
+  ion-item.has-error {
+    --border-color: var(--ion-color-danger);
+  }
+}
