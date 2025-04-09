@@ -49,11 +49,11 @@
                   <ion-select-option *ngFor="let day of days" [value]="day">{{day}}</ion-select-option>
                 </ion-select>
 
-                <ion-select fill="outline" [(ngModel)]="formData.birthMonth" name="birthMonth" placeholder="Month">
+                <ion-select fill="outline" [(ngModel)]="formData.birthMonth" name="birthMonth" placeholder="Month" (ionChange)="onMonthChange()">
                   <ion-select-option *ngFor="let month of months" [value]="month">{{month}}</ion-select-option>
                 </ion-select>
 
-                <ion-select fill="outline" [(ngModel)]="formData.birthYear" name="birthYear" placeholder="Year">
+                <ion-select fill="outline" [(ngModel)]="formData.birthYear" name="birthYear" placeholder="Year" (ionChange)="onYearChange()">
                   <ion-select-option *ngFor="let year of years" [value]="year">{{year}}</ion-select-option>
                 </ion-select>
               </div>

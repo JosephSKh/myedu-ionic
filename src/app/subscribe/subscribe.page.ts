@@ -24,27 +24,64 @@ export class SubscribePage implements OnInit {
     selectedTopics: [] as string[]
   };
 
-  days = Array.from({length: 31}, (_, i) => i + 1);
-  months = ['January', 'February', 'March', 'April', 'May', 'June', 
-           'July', 'August', 'September', 'October', 'November', 'December'];
+  days: number[] = [];
+  months = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+  ];
   years = Array.from({length: 20}, (_, i) => new Date().getFullYear() - i);
   grades = Array.from({length: 12}, (_, i) => i + 1);
   topics = ['Arabic', 'Islamic', 'English', 'History', 'Sports'];
 
-  constructor() { }
+  constructor() {
+    this.updateDays();
+  }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  updateDays() {
+    let maxDays = 31;
+    const month = this.months.indexOf(this.formData.birthMonth) + 1;
+    const year = parseInt(this.formData.birthYear);
+
+    if (month === 2) { // February
+      maxDays = this.isLeapYear(year) ? 29 : 28;
+    } else if ([4, 6, 9, 11].includes(month)) { // April, June, September, November
+      maxDays = 30;
+    }
+
+    // If the currently selected day is greater than maxDays, reset it
+    if (parseInt(this.formData.birthDate) > maxDays) {
+      this.formData.birthDate = '';
+    }
+
+    this.days = Array.from({length: maxDays}, (_, i) => i + 1);
+  }
+
+  isLeapYear(year: number): boolean {
+    if (!year) return false;
+    return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+  }
+
+  onMonthChange() {
+    this.updateDays();
+  }
+
+  onYearChange() {
+    this.updateDays();
   }
 
   onGenderChange(event: CheckboxCustomEvent, gender: string) {
     if (event.detail.checked) {
       this.formData.gender = gender;
+      // Uncheck the other checkbox
       const otherGender = gender === 'Boy' ? 'Girl' : 'Boy';
       const otherCheckbox = document.querySelector(`ion-checkbox[value="${otherGender}"]`) as HTMLIonCheckboxElement;
       if (otherCheckbox) {
         otherCheckbox.checked = false;
       }
     } else {
+      // If unchecking, clear the gender
       this.formData.gender = '';
     }
   }
