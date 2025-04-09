@@ -21,6 +21,7 @@
 
   @media (max-width: 1024px) {
     grid-template-columns: 1fr;
+    padding: 0 15px;
   }
 }
 
@@ -231,6 +232,10 @@ ion-item {
   height: fit-content;
   position: sticky;
   top: 40px;
+
+  @media (max-width: 1024px) {
+    border-radius: 24px;
+  }
 
   .subtitle {
     color: #000 !important;
